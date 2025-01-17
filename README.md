@@ -1,4 +1,4 @@
-# ToDoList(3 pages)ReactRedux
+# EmulationWebSocket_Vue
 ![alt text](image-1.png)
 
 ## Cтек: TypeScript, Vue
