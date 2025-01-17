@@ -1,19 +1,14 @@
-# vue
+# ToDoList(3 pages)ReactRedux
+![alt text](image-1.png)
 
-## Project setup
-```
-npm install
-```
+## Cтек: TypeScript, Vue
+- Реализовано отображение сообщений чата, отображение списка сообщений, кнопка для добавления сообщений(имитация)
+- Добавлена функциональность сохранения переписки в текстовый файл через кнопку сохранить переписку
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Инструкция по запуску
+- Создайте папку для проекта и перейдите в неё.
+- Склонируйте репозиторий `git clone git@github.com:AplusO1/ReactReduxTS-3-Pages.git`
+- Установите зависимости `npm install`
+- Запускайте проект `npm run serve`
+- Запустить линтер `npm run lint`
+---
