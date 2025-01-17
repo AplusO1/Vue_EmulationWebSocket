@@ -7,7 +7,7 @@
 
 ### Инструкция по запуску
 - Создайте папку для проекта и перейдите в неё.
-- Склонируйте репозиторий `git clone git@github.com:AplusO1/ReactReduxTS-3-Pages.git`
+- Склонируйте репозиторий `git clone git@github.com:AplusO1/Vue_EmulationWebSocket.git`
 - Установите зависимости `npm install`
 - Запускайте проект `npm run serve`
 - Запустить линтер `npm run lint`

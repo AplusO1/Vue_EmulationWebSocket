@@ -2,6 +2,7 @@
   <div class="chat">
     <h1 class="title">Чат</h1>
     <div class="messages">
+      <p v-if="!messages.length" class="no-messages">Новых сообщений нет!</p>
       <Message 
         v-for="(message, index) in messages" 
         :key="index" 
@@ -9,13 +10,16 @@
         :timestamp="message.timestamp"
       />
     </div>
-    <button @click="addMessage">Добавить сообщение</button>
+    <div class="input-container">
+      <input v-model="newMessage" @keyup.enter="addMessage" placeholder="Введите сообщение..." />
+      <button @click="addMessage">Добавить сообщение</button>
+    </div>
     <SaveButton :messages="messages" />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive } from 'vue';
+import { defineComponent, reactive, ref } from 'vue';
 import Message from './Message.vue';
 import SaveButton from './SaveButton.vue';
 
@@ -29,17 +33,21 @@ export default defineComponent({
   components: { Message, SaveButton },
   setup() {
     const messages = reactive<Message[]>([]);
+    const newMessage = ref('');
 
     const addMessage = () => {
+      if (!newMessage.value.trim()) return;
       const now = new Date();
       messages.push({
-        text: `Сообщение ${messages.length + 1}`,
+        text: newMessage.value.trim(),
         timestamp: now.toLocaleTimeString(),
       });
+      newMessage.value = '';
     };
 
     return {
       messages,
+      newMessage,
       addMessage,
     };
   },
@@ -65,6 +73,18 @@ export default defineComponent({
   overflow-y: auto;
   background-color: #f9f9f9;
   border-radius: 8px;
+}
+.input-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
 }
 button {
   padding: 12px 24px;
